@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0; /*全体の初期値をゼロにする？*/
+    overflow-x: hidden; /*blockが画面外に出ている時に表示させないようにする*/
+}
+.game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto; /*画面全体の中央に配置する*/
+}
+#character{
+    width: 40px;
+    height: 50px;
+    position:relative; /*blockとぶつかるときの判定など他の要素との相対的な距離算出が必要なため、absoluteではなくrelative*/
+    top: 157px; /*ここでのtopは画面の上辺から数えての値なので注意*/
+}
+.animate{
+    animation: jump 0.3s linear;
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;} /*30-70%のところで１００pxのところにいるので一瞬滞空するアニメーションになる*/
+}
+
+#block{
+    width: 30px;
+    height: 20px;
+    position: relative;
+    top: 150px;
+    left: 500px;
+    animation: block 1s infinite linear;
+}
+@keyframes block{
+    0%{left: 500px}
+    100%{left: -50px}
+}
+p{
+    text-align: center;
+}
